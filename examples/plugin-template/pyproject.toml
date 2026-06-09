@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "statelab-myplugin"
+version = "0.1.0"
+description = "A StateLab plugin"
+requires-python = ">=3.10"
+dependencies = ["statelab"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["myplugin*"]
+
+# Ship the Solidity source and the compiled artifact inside the wheel so a user
+# of the plugin needs no Solidity toolchain.
+[tool.setuptools.package-data]
+myplugin = ["contracts/*.sol", "artifacts/**/*.json"]

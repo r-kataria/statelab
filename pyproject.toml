@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "statelab"
+version = "0.1.0"
+description = "A programmable, multi-chain EVM simulator built on Anvil"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Rishi R. Kataria" }]
+keywords = ["ethereum", "evm", "anvil", "foundry", "simulation",
+            "blockchain", "cross-chain", "web3", "testing"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "web3>=7.0,<8.0",
+    "eth-account>=0.13,<0.14",
+    "pandas>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/r-kataria/statelab"
+Repository = "https://github.com/r-kataria/statelab"
+Issues = "https://github.com/r-kataria/statelab/issues"
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.7"]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["statelab*"]
+
+[tool.setuptools.package-data]
+statelab = [
+    "contracts/*.sol",
+    "contracts/artifacts/**/*.json",
+    "infra/*.yml",
+    "plugins/**/contracts/*.sol",
+    "plugins/**/artifacts/**/*.json",
+]
+
+[tool.pytest.ini_options]
+markers = ["integration: requires a running Anvil pair (native or Docker)"]

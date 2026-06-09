@@ -1,0 +1,3 @@
+[profile.default]
+src = "myplugin/contracts"
+out = "out"

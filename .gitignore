@@ -1,0 +1,8 @@
+statelab.egg-info/
+build/
+__pycache__/
+*.pyc
+out/
+.pytest_cache/
+figs/
+*.egg-info/
